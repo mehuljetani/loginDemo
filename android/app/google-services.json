@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "731719474260",
+    "project_id": "logindemo-f2edf",
+    "storage_bucket": "logindemo-f2edf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731719474260:android:9f6741c3435b0bf58c21c1",
+        "android_client_info": {
+          "package_name": "com.logindemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731719474260-j6hd8l32rq2o56iobo76iuk7ah84h3ts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.logindemo",
+            "certificate_hash": "0c195c5ccbbabf0e8e33d8c34e7c6b3f43030266"
+          }
+        },
+        {
+          "client_id": "731719474260-p30dj6gh3h2f222hsbo2puhal43b5d3t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq1CQ93Pg4VCihGR42y4RSoPBgeSzUgEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731719474260-p30dj6gh3h2f222hsbo2puhal43b5d3t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "731719474260-9ngh830igp8t2vgm1d5prd0nd6mn3geg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.loginDemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
