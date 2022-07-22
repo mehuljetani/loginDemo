@@ -3,6 +3,7 @@ import React from 'react';
 import auth from '@react-native-firebase/auth';
 import firebase from '@react-native-firebase/app';
 import {GoogleSignin} from '@react-native-community/google-signin';
+import {LoginManager} from 'react-native-fbsdk-next';
 
 const HomeScreen = ({navigation}: any) => {
   const user = firebase.auth().currentUser;
@@ -17,6 +18,18 @@ const HomeScreen = ({navigation}: any) => {
       console.error(error);
     }
   };
+
+  // const signOut = async () => {
+  //   console.log('executing logout');
+
+  //   try {
+  //     LoginManager.logOut();
+  //     const signOutResult = await auth().signOut();
+  //     console.log('signOutResult', signOutResult);
+  //   } catch (error) {
+  //     console.error;
+  //   }
+  // };
 
   return (
     <View style={styles.container}>

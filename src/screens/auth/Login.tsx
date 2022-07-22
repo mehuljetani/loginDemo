@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import Button from '../../components/common/Button';
 import {GoogleSignin} from '@react-native-community/google-signin';
 import auth from '@react-native-firebase/auth';
+import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
 
 const Login = ({navigation}: any) => {
   const onGooglePress = () => {
@@ -30,11 +31,46 @@ const Login = ({navigation}: any) => {
     return auth().signInWithCredential(googleCredential);
   }
 
-  const onFacebookPress = () => {};
-
   const onTwitterPress = () => {};
 
   const onApplePress = () => {};
+
+  const onFacebookPress = () => {
+    onFacebookButtonPress()
+      .then(res => {
+        navigation.navigate('HomeScreen');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  async function onFacebookButtonPress() {
+    // Attempt login with permissions
+    const result = await LoginManager.logInWithPermissions([
+      'public_profile',
+      'email',
+    ]);
+
+    if (result.isCancelled) {
+      throw 'User cancelled the login process';
+    }
+    // Once signed in, get the users AccesToken
+    const data = await AccessToken.getCurrentAccessToken();
+
+    if (!data) {
+      throw 'Something went wrong obtaining access token';
+    }
+    // Create a Firebase credential with the AccessToken
+    const facebookCredential = auth.FacebookAuthProvider.credential(
+      data.accessToken,
+    );
+
+    console.log(auth().currentUser?.displayName);
+
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(facebookCredential);
+  }
 
   return (
     <View style={styles.container}>
@@ -60,7 +96,7 @@ const Login = ({navigation}: any) => {
         />
         <Button
           btnName={'Sign in with Mobile'}
-          onPress={{}}
+          // onPress={{}}
           source={require('../../../assets/images/otp.png')}
         />
         {Platform.OS === 'ios' ? (
